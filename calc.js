@@ -1,43 +1,116 @@
 var mathExpression = function (expression)
 {		
   
-	var firstNumber = 0;
-	var conditionExpression = "";
-	var secondNumber = 0;
-	var expressionResult = null;
+	var firstNumber = "";
+	var secondNumber = "";
+	var getExpression = document.getElementById('visor').value += expression;
+	
 
-	document.getElementById('visor').value += expression;
-	if(isNaN(document.getElementById('visor').value)==true)
+	if(isNaN(document.getElementById('visor').value) == true)
 	{
-		console.log("if");
-		for(var count = 0; count >= expression.length; count++)
+		
+		for(var count = 0; count <= getExpression.length; count ++)
   		{
-    		if(expression[count] == "+")
+    		switch (getExpression[count])
     		{
-    			console.log("CHARRRRGGEEEEEEE");
-      			
-       			for(var searchFirstnumber = 0; searchFirstnumber < count; searchFirstnumber++)
-       			{
-         			firstNumber += expression[searchFirstnumber];      
-       			} 
+    			case "+":    			
+       				
+       				for(var searchFirstnumber = 0; searchFirstnumber < count; searchFirstnumber ++)
+       				{
+         				firstNumber += getExpression[searchFirstnumber];  
+       				} 
        
-       			for(var searchSecondnumber = count; searchSecondnumber <= expression.length; searchSecondnumber++)
-         		{
-           			secondNumber += expression[searchSecondnumber];           
-         		}
-      			console.log(firstNumber);
-      			console.log(secondNumber);
+      	 			for(var searchSecondnumber = count +1; searchSecondnumber < getExpression.length; searchSecondnumber ++)
+        	 		{        			        		
+	           			secondNumber += getExpression[searchSecondnumber];    
+    	       			sum(parseInt(firstNumber),parseInt(secondNumber));           		         						
+      		   		}
+         	
+         		break;
+
+      			case "-":
+
+      				for(var searchFirstnumber = 0; searchFirstnumber < count; searchFirstnumber ++)
+       				{
+         				firstNumber += getExpression[searchFirstnumber];  
+       				} 
+       
+      	 			for(var searchSecondnumber = count +1; searchSecondnumber < getExpression.length; searchSecondnumber ++)
+        	 		{        			        		
+	           			secondNumber += getExpression[searchSecondnumber];    
+    	       			minus(parseInt(firstNumber),parseInt(secondNumber));           		         						
+      		   		}
+
+      		   	break;	
+
+      		   	case "*":
+
+      		   		for(var searchFirstnumber = 0; searchFirstnumber < count; searchFirstnumber ++)
+       				{
+         				firstNumber += getExpression[searchFirstnumber];  
+       				} 
+       
+      	 			for(var searchSecondnumber = count +1; searchSecondnumber < getExpression.length; searchSecondnumber ++)
+        	 		{        			        		
+	           			secondNumber += getExpression[searchSecondnumber];    
+    	       			mult(parseInt(firstNumber),parseInt(secondNumber));           		         						
+      		   		}
+
+      		   	break;	
+
+      		   	case "/":
+
+      		   		for(var searchFirstnumber = 0; searchFirstnumber < count; searchFirstnumber ++)
+       				{
+         				firstNumber += getExpression[searchFirstnumber];  
+       				} 
+       
+      	 			for(var searchSecondnumber = count +1; searchSecondnumber < getExpression.length; searchSecondnumber ++)
+        	 		{        			        		
+	           			secondNumber += getExpression[searchSecondnumber];    
+    	       			div(parseInt(firstNumber),parseInt(secondNumber));           		         						
+      		   		}
+      		   	break;
+
+      		   	default:
+      		   			
     		} 
     	}	 
 	}
-	else
-	{
 	
-	console.log("else");
+	else
+	{	
+		console.log("else");
 	}
-
-		
-  	
-
   
+}
+
+function sum(sum1,sum2,result)
+{	
+	result = sum1 + sum2;
+	alert(result);
+	return result;
+
+
+}
+
+function minus(min1,min2,result)
+{	
+	result = min1 - min2;
+	return result;
+
+}
+
+function mult(mult1,mult2,result)
+{	
+	result = mult1 * mult2;
+	return result;
+
+}
+
+function div(div1,div2,result)
+{	
+	result = div1 / div2;
+	return result;
+
 }
