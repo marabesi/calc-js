@@ -5,6 +5,16 @@ var mathExpression = function (expression)
 	var secondNumber = "";
 	var getExpression = document.getElementById('visor').value += expression;
 	
+	
+	var clear = function(clear)
+	{
+		firstNumber = "";
+		secondNumber = "";
+		getExpression = document.getElementById('visor').clear;	
+		result = "";
+		console.log("Clear");
+
+	}	
 
 	if(isNaN(document.getElementById('visor').value) == true)
 	{
@@ -72,6 +82,14 @@ var mathExpression = function (expression)
       		   		}
       		   	break;
 
+      		   	case "=":
+      		   	
+      		   		getExpression = document.getElementById('visor').clear;
+      		   		getExpression = document.getElementById('visor').value = equal();
+      		   		alert(equal(equal));
+      		   	
+      		   	break;
+
       		   	default:
       		   			
     		} 
@@ -88,29 +106,35 @@ var mathExpression = function (expression)
 function sum(sum1,sum2,result)
 {	
 	result = sum1 + sum2;
-	alert(result);
-	return result;
-
+	equal(result);
 
 }
 
 function minus(min1,min2,result)
 {	
 	result = min1 - min2;
-	return result;
+	equal(result);
 
 }
 
 function mult(mult1,mult2,result)
 {	
 	result = mult1 * mult2;
-	return result;
+	equal(result);
 
 }
 
 function div(div1,div2,result)
 {	
 	result = div1 / div2;
-	return result;
+	equal(result);
+
+}
+
+function equal(equal1)
+{
+	console.log("equal");
+	console.log(equal1);
+	return equal1;
 
 }
